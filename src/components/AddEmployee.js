@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import Axios from 'axios'
+import EmployeeService from '../service/EmployeeService'
 
-export class Form extends Component {
+export class AddEmployee extends Component {
     constructor(props) {
         super(props)
         this.state= { 
@@ -54,7 +54,8 @@ export class Form extends Component {
     }
     handleFormSubmit = (event) => {
         //alert(`${this.state.name} ${this.state.gender}`)
-        Axios.post('http://localhost:8080/employee/add', this.state)
+       //Axios.post('http://localhost:8080/employee/add', this.state)
+       EmployeeService.addEmployee(this.state)
         .then(res=>{
             console.log(res);
             alert(res.data.message);
@@ -80,8 +81,14 @@ export class Form extends Component {
                         <td><input type="text" value={this.state.imgPath}  onChange={this.handleImageChange} /></td>
                     </tr>
                     <tr>
-                        <td><label>Gender</label></td>
-                        <td><input type="text" value={this.state.gender}  onChange={this.handleGenderChange} /></td>
+                        <td><label for="gender">Gender</label></td>
+                        <td>
+                            <select value={this.state.gender} id="gender" onChange={this.handleGenderChange}>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
+                            </select> 
+                        </td>
                     </tr>
                     <tr>
                         <td><label>Department</label></td>
@@ -110,5 +117,5 @@ export class Form extends Component {
 
 }
 
-export default Form
+export default AddEmployee
 
