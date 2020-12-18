@@ -17,8 +17,18 @@ export class GetEmployee extends Component {
           });
         });
     }
+
+    
    handleUpdateEmployeeClick(id) {
     this.props.history.push(`/add-update-employee/${id}`)
+   }
+   handleDeleteEmployeeClick(id) {
+       EmployeeService.deleteEmployeeById(id).then((res) => {
+           alert(res.data.message); 
+           this.setState({
+               employees: this.state.employees.filter((employee) => employee.id != id)
+           });
+       })
    }
   
 
@@ -56,9 +66,17 @@ export class GetEmployee extends Component {
                       onClick={() =>
                         this.handleUpdateEmployeeClick(employee.id)
                       }
-                      className="btn btn-info"
+                      className="btn btn-info m-2"
                     >
                       Update
+                    </button>
+                    <button
+                      onClick={() =>
+                        this.handleDeleteEmployeeClick(employee.id)
+                      }
+                      className="btn btn-danger"
+                    >
+                      Delete
                     </button>
                 </td>
               </tr>

@@ -21,7 +21,7 @@ export class Header extends Component {
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/add-update-employee/-1">
+                      <a class="nav-link" href="/add-update-employee/add">
                         Add
                       </a>
                     </li>
