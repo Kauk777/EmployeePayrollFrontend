@@ -8,7 +8,7 @@ export class AddUpdateEmployee extends Component {
     this.state = {
       id: this.props.match.params.id,
       name: "",
-      imgPath: "",
+      imagePath: "",
       gender: "male",
       salary: 0,
       startDate: "",
@@ -24,7 +24,7 @@ export class AddUpdateEmployee extends Component {
         this.setState({
           //id:employee.id,
           name: employee.name,
-          imgPath: employee.imgPath,
+          imagePath: employee.imagePath,
           gender: employee.gender,
           salary: employee.salary,
           startDate: employee.startDate,
@@ -50,7 +50,7 @@ export class AddUpdateEmployee extends Component {
   };
   handleImagePathChange = (event) => {
     this.setState({
-      imgPath: event.target.value,
+      imagePath: event.target.value,
     });
   };
   handleGenderChange = (event) => {
@@ -137,7 +137,7 @@ export class AddUpdateEmployee extends Component {
                     <input
                       className="form-control"
                       type="text"
-                      value={this.state.imgPath}
+                      value={this.state.imagePath}
                       onChange={this.handleImagePathChange}
                     />
                   </div>

@@ -55,7 +55,7 @@ export class GetEmployee extends Component {
               {this.state.employees.map((employee) => (
                 <tr key={employee.id}>
                 <td>{employee.name}</td>
-                <td>{employee.imgPath}</td>
+                <td>{employee.imagePath}</td>
                 <td>{employee.gender}</td>
                 <td>{employee.salary}</td>
                 <td>{employee.startDate}</td>
